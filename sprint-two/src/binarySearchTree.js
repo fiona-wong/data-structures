@@ -43,15 +43,17 @@ var BinarySearchTree = function(value) {
   };
   
   tree.depthFirstLog = function(cb) {
-    if (tree.value !== null) {
-      cb(tree.value);
-    } else if (tree.left.value !== null) {
-      cb(tree.left.value);
-      tree.left.depthFirstLog(cb);
-    } else if (tree.right.value !== null) {
-      cb(tree.right.value);
-      tree.right.depthFirstLog(cb);
+    cb (this.value);
+    if (this.left) {
+      //if value has a this .left
+      //go to its value and run recursive function
+      this.left.depthFirstLog(cb);
     }
+
+    if (this.right) {
+      this.right.depthFirstLog(cb);
+    }
+
   };
 
 
